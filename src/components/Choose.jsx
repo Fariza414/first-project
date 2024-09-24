@@ -4,7 +4,9 @@ import Options from "./Options";
 
 const Choose = () => {
   const apikey = import.meta.env.VITE_API_KEY
+  const apiurl = import.meta.env.VITE_API_URL
 
+  const [generatedText, setGeneratedText] = useState();
 
   const [urlOfImage, setUrlOfImage] = useState("");
 
@@ -35,6 +37,34 @@ const Choose = () => {
     setGtpPromptText([...gtpPromptText, ingredient.name]);
   };
 
+  const generateText = async () => {
+    console.log('generating text');
+    let promptText = `generate me fairytail about nature`;
+
+    try{
+      const response = await fetch(apiurl,  {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apikey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: promptText,
+            max_tokens: 350,
+          }),
+        });
+        const data = await response.json();
+        console.log("data:", data);
+
+        const text = data.choices[0].text;
+        setGeneratedText();
+        console.log(text);
+    }catch (error) {
+      console.error(error.response?.data ?? error.toJSON?.() ?? error);
+      console.error("API error", error);
+    }
+  }
+
   const generateImage = async (promptTextForImage) => {
     console.log('started image generation')
     const options = {
@@ -59,6 +89,7 @@ const Choose = () => {
       console.log("data of generationImage is below:", data);
       setUrlOfImage(data.data[0].url)
       console.log("urlOfImage" + urlOfImage);
+
     } catch (error){
       console.error(error)
     }
@@ -84,13 +115,15 @@ const Choose = () => {
         </div>
         <img src={urlOfImage} alt="Generate Image" width={400} />
         <button
-          onClick={() => generateImage("ede")}
+          onClick={() => generateText()}
           className="px-4 h-[50px] m-4 rounded-2xl bg-indigo-400"
         >
           Generate Idea
-        </button> 
+        </button>
       </div>
-      <Options setPrompt={setPrompt}/>
+      <Options setPrompt={setPrompt} />
+      <h1>Generated text</h1>
+      <p>text: {generatedText} </p>
     </div>
   );
 };
