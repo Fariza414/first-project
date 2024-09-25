@@ -11,7 +11,7 @@ const Options = ({setPrompt}) => {
 
 
   const handleGenerate = () => {
-    const promptToGpt = `Сгенерируй мне фото для того чтоб я могла сделать красивое фото на этом месте и с такими условиями: сезон года должен быть: ${season}, погода должна быть: ${weather}, еще следующая погода: ${typeOfWeather}. Страна фотографии должна быть:  ${country}, используй этот фильтер: ${filters}`;
+    const promptToGpt = `Найди фотографию, на которой изображен человек ${gender} на фоне ${country} с такими погодными условиями ${weather} и с таким сезоном года ${season} и добавь еще такие сочетание погод ${typeOfWeather} и используй такой фильтр для фото ${filters}. Фотография должна быть красивой и соответствовать стилю фотосессии. Например, если выбранное место - это пляж, а погода солнечная, опиши, как человек взаимодействует на этом фоне.`;
     setPrompt(promptToGpt);
   } 
 
@@ -20,8 +20,8 @@ const Options = ({setPrompt}) => {
   }, [season, weather, typeOfWeather, filters, country, gender]);
 
   return (
-    <div className="w-full flex flex-col items-center p-5 bg-slate-600">
-      <div className="w-[900px] h-[400px] flex flex-col items-center justify-center rounded-xl border-4 border-red bg-slate-400">
+    <div className="w-full flex flex-col items-center p-5">
+      <div className="w-[900px] h-[400px] flex flex-col items-center justify-center rounded-xl border-4 border-red">
         <div className="space-y-4 ">
           <h3 className="pl-16 text-lg font-bold">Options</h3>
           <p>Lorem ipsum dolor sit amet.</p>
@@ -30,11 +30,15 @@ const Options = ({setPrompt}) => {
           <div>
             <label For="season">Season</label>
             <select
+              value={season}
               name="season"
               id="season"
               onChange={(e) => setSeason(e.target.value)}
-              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5"
+              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-white focus:bg-gray-400"
             >
+              <option value="" disabled>
+                Select a season
+              </option>
               <option value="Winter">Winter</option>
               <option value="Spring">Spring</option>
               <option value="Summer">Summer</option>
@@ -45,8 +49,9 @@ const Options = ({setPrompt}) => {
             <p>Weather</p>
             <input
               type="text"
-              placeholder="Weather" onChange={(e) => setWeather(e.target.value)}
-              className="h-[30px] rounded-md pl-5"
+              placeholder="Weather"
+              onChange={(e) => setWeather(e.target.value)}
+              className="h-[30px] rounded-md pl-5 bg-white focus:bg-gray-400"
             />
           </div>
           <div>
@@ -55,8 +60,11 @@ const Options = ({setPrompt}) => {
               name="weather"
               id="weather"
               onChange={(e) => setTypeOfWeather(e.target.value)}
-              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5"
+              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-white focus:bg-gray-400"
             >
+              <option value="" disabled>
+                Select weather type
+              </option>
               <option value="Sun and Rain">Sun & Rain</option>
               <option value="Sun and Snow">Sun & Snow</option>
               <option value="Rain and Snow">Rain & Snow</option>
@@ -66,8 +74,9 @@ const Options = ({setPrompt}) => {
             <p>Country</p>
             <input
               type="text"
-              placeholder="Country" onChange={(e) => setCountry(e.target.value)}
-              className="h-[30px] rounded-md pl-5"
+              placeholder="Country"
+              onChange={(e) => setCountry(e.target.value)}
+              className="h-[30px] rounded-md pl-5 bg-white focus:bg-gray-400"
             />
           </div>
           <div>
@@ -76,8 +85,11 @@ const Options = ({setPrompt}) => {
               name="filters"
               id="filters"
               onChange={(e) => setFilters(e.target.value)}
-              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5"
+              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-white focus:bg-gray-400"
             >
+              <option value="" disabled>
+                Select a filter
+              </option>
               <option value="Black & White">Black & White</option>
               <option value="Retro">Retro</option>
               <option value="Anime">Anime</option>
@@ -90,21 +102,24 @@ const Options = ({setPrompt}) => {
               name="gender"
               id="gender"
               onChange={(e) => setGender(e.target.value)}
-              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5"
+              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-white focus:bg-gray-400"
             >
+              <option value="" disabled>
+                Select gender
+              </option>
               <option value="Female">Female</option>
               <option value="Man">Man</option>
             </select>
           </div>
         </div>
-        <button onClick={handleGenerate}>Generate</button>
+        {/* <button onClick={handleGenerate}>Generate</button> */}
       </div>
-      <p>Season: {season}</p>
+      {/* <p>Season: {season}</p>
       <p>Type of weather: {typeOfWeather}</p>
       <p>Filters: {filters}</p>
       <p>Gender: {gender}</p>
       <p>Weather: {weather} </p>
-      <p>Country: {country}</p>
+      <p>Country: {country}</p> */}
     </div>
   );
 };
