@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Options = ({setPrompt}) => {
+const Options = () => {
 
   const [season, setSeason] = useState("");
   const [weather, setWeather] = useState("");
@@ -11,8 +11,7 @@ const Options = ({setPrompt}) => {
 
 
   const handleGenerate = () => {
-    const promptToGpt = `Найди фотографию, на которой изображен человек ${gender} на фоне ${country} с такими погодными условиями ${weather} и с таким сезоном года ${season} и добавь еще такие сочетание погод ${typeOfWeather} и используй такой фильтр для фото ${filters}. Фотография должна быть красивой и соответствовать стилю фотосессии. Например, если выбранное место - это пляж, а погода солнечная, опиши, как человек взаимодействует на этом фоне.`;
-    setPrompt(promptToGpt);
+    const promptToGpt = `Найди фотографию из интернета или же из pinterest азиатских людей, на которой изображен человек и пол человека должен быть ${gender} на фоне ${country} с такими погодными условиями ${weather} и с таким сезоном года ${season} и добавь еще такие сочетание погод ${typeOfWeather} и используй такой фильтр для фото ${filters}. Фотография должна быть красивой и соответствовать стилю фотосессии. Например, если выбранное место - это пляж, а погода солнечная, опиши, как человек взаимодействует на этом фоне.`;
   } 
 
   useEffect(()=>{
@@ -112,14 +111,7 @@ const Options = ({setPrompt}) => {
             </select>
           </div>
         </div>
-        {/* <button onClick={handleGenerate}>Generate</button> */}
       </div>
-      {/* <p>Season: {season}</p>
-      <p>Type of weather: {typeOfWeather}</p>
-      <p>Filters: {filters}</p>
-      <p>Gender: {gender}</p>
-      <p>Weather: {weather} </p>
-      <p>Country: {country}</p> */}
     </div>
   );
 };

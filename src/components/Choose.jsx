@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Ingredient from "./Ingredient";
 import Options from "./Options";
-import { FaSpinner } from "react-icons/fa";
+// import { FaSpinner } from "react-icons/fa";
+import GenerationResult from "./GenerationResult";
 
 const Choose = () => {
   const apikey = import.meta.env.VITE_API_KEY
@@ -12,6 +13,8 @@ const Choose = () => {
   const [promptText, setPromptText] = useState("");
   const [gtpPromptText, setGtpPromptText] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const [showResult, setShowResult] = useState(false);
 
   const ingredientsData = [
     { name: "Mountain", imageSrc: "/images/mountain.png" },
@@ -25,10 +28,10 @@ const Choose = () => {
     { name: "Summer", imageSrc: "/images/summer.webp" },
     { name: "Autumn", imageSrc: "/images/autumn.png" },
   ];
-  const setPrompt = (prompt) => {
-    setPromptText(prompt);
-    generateImage(prompt);
-  }
+  // const setPrompt = (prompt) => {
+    // setPromptText(prompt);
+    // generateImage(prompt);
+  // }
   // const [imageUrl, setImageUrl] = useState('');
 
   const handleIngredientClick = (ingredient) => {
@@ -39,10 +42,10 @@ const Choose = () => {
     setLoading(true);
     console.log('generating text');
     let generationtext = `Также напиши пошаговую инструкцию, как сделать похожее фото, включая:
-Как выбрать угол съемки.
-Как правильно настроить освещение в зависимости от погоды.
-Какие позы лучше всего подходят для фотосессии.
-Какие дополнительные детали учесть для создания красивого кадра.`;
+       Как выбрать угол съемки.
+       Как правильно настроить освещение в зависимости от погоды.
+       Какие позы лучше всего подходят для фотосессии.
+       Какие дополнительные детали учесть для создания красивого кадра.`;
 
     try{
       const response = await fetch(apiurl,  {
@@ -62,11 +65,12 @@ const Choose = () => {
         const text = data.choices[0].text;
         setGeneratedText(text);
         console.log(text);
+        await generateImage(text);
+        setLoading(false);
     }catch (error) {
-      console.error(error.response?.data ?? error.toJSON?.() ?? error);
-      console.error("API error", error);
-    }finally{
       setLoading(false);
+      alert("sorry, generation feiled");
+      console.error("API error", error);
     }
   }
 
@@ -102,28 +106,24 @@ const Choose = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-col items-center justify-center">
-        <div className="flex">
+      <div className=" flex flex-col items-center justify-center ml-24 md:ml-5">
+        <div className="w-[400px] md:w-[600px] lg:w-[1400px] flex flex-wrap justify-center">
           {ingredientsData.map((ingredient, index) => (
             <Ingredient
               key={index}
               imageSrc={ingredient.imageSrc}
-              // isSelected={selectedIngredients.includes(ingredient)}
               onClick={() => handleIngredientClick(ingredient)}
             />
           ))}
         </div>
-        <div >
+        <div>
           <ul>
             {gtpPromptText.map((ingredient, index) => (
               <li key={index}>{ingredient}</li>
             ))}
           </ul>
         </div>
-        {/* <div className="w-[350px] h-[350px] my-4">
-          <img src={urlOfImage} alt="Generate Image" width={400} />
-        </div> */}
-        {urlOfImage ? (
+        {/* {urlOfImage ? (
           <div className="w-[350px] h-[350px] my-4">
             <img src={urlOfImage} alt="Generated" width={400} />
           </div>
@@ -132,8 +132,8 @@ const Choose = () => {
             {" "}
             <p>Здесь появится ваше изображение...</p>
           </div>
-        )}
-        <button
+        )} */}
+        {/* <button
           onClick={() => generateText()}
           className="px-4 w-[150px] h-[50px] m-4 rounded-2xl bg-indigo-400 flex items-center justify-center"
           disabled={loading}
@@ -143,13 +143,25 @@ const Choose = () => {
           ) : (
             "Generate Idea"
           )}
-        </button>
+        </button> */}
       </div>
-      <Options setPrompt={setPrompt} />
-      <div className="w-[400px] h-[80px] md:w-[600px] lg:w-[1000px] lg:h-[500px] flex flex-col items-center  mt-10 ml-52 md:ml-52 lg:ml-0 pt-2 pl-5 pr-5">
-        <h1 className="font-bold">Generated text</h1>
-        <p> {generatedText} </p>
-      </div>
+      <Options />
+      {/* <div className="w-[400px] md:w-[600px] lg:w-[1000px] flex flex-col items-center  mt-10 ml-52 md:ml-52 lg:ml-0 pt-2 pl-5 pr-5">
+        {generatedText ? (
+          <h1 className="font-bold">
+            Generated text: <p className="">{generatedText}</p>
+          </h1>
+        ) : (
+          ""
+        )}
+      </div> */}
+      <GenerationResult
+        generatedText={generatedText}
+        urlOfImage={urlOfImage}
+        showResult={showResult}
+        generateText={generateText}
+        loading={loading}
+      />
     </div>
   );
 };

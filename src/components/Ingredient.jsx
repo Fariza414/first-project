@@ -25,7 +25,7 @@ const Ingredient = ({ imageSrc, isSelected, onClick }) => {
       <img
         src={imageSrc}
         alt="ingredient"
-        style={{ width: "80%", height: "80%" }}
+        style={{ width: "70%", height: "70%" }}
       />
     </div>
   );

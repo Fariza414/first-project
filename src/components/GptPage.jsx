@@ -9,7 +9,7 @@ const GptPage = () => {
         <p>
           
         </p>
-        <h3 className="font-bold">Selected:</h3>
+        <h3 className="font-bold">Selecte:</h3>
       </div>
       <div className="flex flex-col items-center">
         <div className="w-full  flex flex-col justify-center items-center">
