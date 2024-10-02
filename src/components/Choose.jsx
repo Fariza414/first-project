@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Ingredient from "./Ingredient";
 import Options from "./Options";
-// import { FaSpinner } from "react-icons/fa";
 import GenerationResult from "./GenerationResult";
 
 const Choose = () => {
@@ -28,11 +27,6 @@ const Choose = () => {
     { name: "Summer", imageSrc: "/images/summer.webp" },
     { name: "Autumn", imageSrc: "/images/autumn.png" },
   ];
-  // const setPrompt = (prompt) => {
-    // setPromptText(prompt);
-    // generateImage(prompt);
-  // }
-  // const [imageUrl, setImageUrl] = useState('');
 
   const handleIngredientClick = (ingredient) => {
     setGtpPromptText([...gtpPromptText, ingredient.name]);
@@ -123,38 +117,8 @@ const Choose = () => {
             ))}
           </ul>
         </div>
-        {/* {urlOfImage ? (
-          <div className="w-[350px] h-[350px] my-4">
-            <img src={urlOfImage} alt="Generated" width={400} />
-          </div>
-        ) : (
-          <div className="mt-4">
-            {" "}
-            <p>Здесь появится ваше изображение...</p>
-          </div>
-        )} */}
-        {/* <button
-          onClick={() => generateText()}
-          className="px-4 w-[150px] h-[50px] m-4 rounded-2xl bg-indigo-400 flex items-center justify-center"
-          disabled={loading}
-        >
-          {loading ? (
-            <FaSpinner className="animate-spin mr-2" />
-          ) : (
-            "Generate Idea"
-          )}
-        </button> */}
       </div>
       <Options />
-      {/* <div className="w-[400px] md:w-[600px] lg:w-[1000px] flex flex-col items-center  mt-10 ml-52 md:ml-52 lg:ml-0 pt-2 pl-5 pr-5">
-        {generatedText ? (
-          <h1 className="font-bold">
-            Generated text: <p className="">{generatedText}</p>
-          </h1>
-        ) : (
-          ""
-        )}
-      </div> */}
       <GenerationResult
         generatedText={generatedText}
         urlOfImage={urlOfImage}

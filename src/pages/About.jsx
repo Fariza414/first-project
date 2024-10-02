@@ -1,15 +1,14 @@
-import React from 'react'
-import NavBar from '../components/NavBar'
+import React from "react";
+import NavBar from "../components/NavBar";
+import Information from "../components/Information";
 
 const About = () => {
   return (
-    <div>
+    <div className="flex felx-col space-y-28">
       <NavBar />
-      <div className='m-20'>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis ratione necessitatibus similique corporis porro. Doloremque repellat possimus nisi ex fugit consequuntur, optio cum numquam aliquid provident placeat? Laudantium accusamus ea eius ab modi iusto alias ipsam aliquid nostrum est voluptatem eum doloremque inventore maxime quo placeat doloribus dolores illo nihil dignissimos, possimus porro, sunt mollitia culpa? Autem at illum a fugiat sequi ipsam, consectetur minima tempora asperiores doloremque error, laudantium officiis, eveniet minus officia? Adipisci, reprehenderit architecto officia iste corporis nesciunt voluptatum doloribus natus, beatae, quas quaerat distinctio maxime. Est rerum velit vel corporis ipsam hic officiis accusantium! Dolores magnam nihil ipsam, minima, assumenda amet quia omnis deserunt officia distinctio nostrum similique architecto earum doloremque placeat non iste quis ducimus veniam, eligendi impedit? Blanditiis accusantium voluptas neque, dolore corporis exercitationem impedit nulla cum maxime mollitia tempore eligendi explicabo perferendis fuga velit vel aperiam culpa ex et odio adipisci officiis atque debitis illum! Hic tempore ipsa voluptatem quia nostrum magnam fuga ut, dolor repudiandae repellendus vero soluta, voluptate debitis dolores atque, quo temporibus! Itaque aut eos ratione iste velit soluta maxime dicta labore quisquam eum minima delectus illum aliquid dolor laborum odit rerum recusandae deserunt debitis molestiae ex magni, veritatis corrupti ut? Voluptatum debitis cupiditate dolore nemo sint ea esse ut tenetur expedita cumque qui quasi, dolorem fuga laborum tempora voluptatibus velit! Unde impedit id aliquid, esse natus perspiciatis eveniet a quas ratione neque doloremque? Doloremque, repellat accusantium maiores fuga possimus magni? Delectus nesciunt earum nulla atque itaque veritatis provident rerum dolorum ad qui. Maiores earum quae laudantium ipsum doloribus unde delectus facere ab obcaecati nobis fugit modi perspiciatis enim repellendus, blanditiis minus sequi exercitationem voluptatem eum fugiat velit quia minima. Vero, est dolores assumenda quod molestias atque voluptatem quas inventore illo in! Impedit accusamus ex voluptates. Omnis magnam iusto itaque ratione dolore natus eligendi nobis repellat provident consectetur accusamus facilis facere cum quae, animi ipsam eos aliquam tenetur voluptas nostrum similique. Quasi tempora est odit nobis magni, ipsam itaque fugiat accusamus magnam delectus totam nemo accusantium assumenda saepe. Quasi illo enim magnam delectus qui quam exercitationem ipsa repellat quidem laboriosam. Earum atque quam unde molestiae veniam, voluptatibus sint dolor veritatis, aperiam nam nobis ut accusamus quaerat. Pariatur quis dolore ea quas, deserunt dolorem atque autem blanditiis tenetur inventore cum aut eveniet sit assumenda libero provident dignissimos nihil alias nesciunt officia similique sint aspernatur. Obcaecati inventore maiores suscipit eius soluta. Facere ipsa alias numquam, amet consequatur voluptates atque doloremque debitis ducimus inventore distinctio laborum aperiam nesciunt dolores quisquam itaque officia? Vero illo blanditiis hic eligendi, natus corporis veniam autem possimus recusandae esse repellat necessitatibus nesciunt accusamus odio minus delectus saepe quis quisquam. Rerum provident totam dolore voluptatum magnam, libero debitis sapiente impedit quidem itaque vel assumenda dignissimos ipsum mollitia cum doloremque, eligendi, eius natus. Itaque officia impedit magni asperiores nam sit praesentium magnam a? Quo tenetur illum laboriosam laudantium fugit blanditiis. Quisquam vel voluptatum ipsum quam sed amet soluta qui inventore quae praesentium, tenetur odio eum! Officiis est saepe dolore ab!</p>
-      </div>
+      <Information />
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
