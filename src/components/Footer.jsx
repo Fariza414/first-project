@@ -19,7 +19,7 @@ const Footer = () => {
 
       <div className="w-[1px] h-[100px] bg-black hidden md:block"></div>
 
-      <div className="w-1/4 flex flex-col items-center">
+      <div className="w-1/4 flex flex-col items-center space-y-2">
         <h2 className="text-xs md:text-sm lg:text-base font-semibold underline">
           Mail
         </h2>
@@ -28,7 +28,7 @@ const Footer = () => {
 
       <div className="w-[1px] h-[100px] bg-black hidden md:block"></div>
 
-      <div className="w-1/4 flex flex-col items-center">
+      <div className="w-1/4 flex flex-col items-center space-y-2">
         <h2 className="text-xs md:text-sm lg:text-base  font-semibold underline">
           Call
         </h2>
@@ -37,7 +37,7 @@ const Footer = () => {
 
       <div className="w-[1px] h-[100px] bg-black hidden md:block"></div>
 
-      <div className="w-1/4 flex flex-col items-center">
+      <div className="w-1/4 flex flex-col items-center space-y-2">
         <h2 className="text-xs md:text-sm lg:text-base  font-semibold underline">
           Find Us
         </h2>

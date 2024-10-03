@@ -7,7 +7,7 @@ import PhotoBlock from '../components/PhotoBlock'
 const mainPage = () => {
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <InfoB />
       <PhotoBlock />
       <Footer />

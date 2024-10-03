@@ -11,10 +11,10 @@ const InfoB = () => {
           <h1 className="text-xl md:text-2xl font-bold relative z-40">
             Hello! I am a creative photographer!
           </h1>
-          <p className="text-indigo-950 text-xs md:text-sm lg:text-base relative z-40">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Necessitatibus assumenda at quisquam ea obcaecati corrupti, deserunt
-            dolorum minima cum!
+          <p className="text-xs md:text-sm lg:text-base relative z-40">
+            Photography is not just about pressing a button; it's about
+            capturing life as it happens, and we’re here to help you frame it
+            beautifully.
           </p>
           <div>
             <Link to={"/generation"}>
@@ -28,11 +28,11 @@ const InfoB = () => {
       <div className="w-[200px] md:w-[300px] lg:w-[500px] relative z-40 md:mt-20 lg:mt-10">
         <img src={Logo} alt="Logo" width={600} />
       </div>
-      <div className="absolute inset-0 z-0">
+      <div className="w-full absolute z-0 mt-20">
         <img
           src={BackImage}
           alt="Background"
-          className="w-full h-[660px] object-cover mt-16"
+          className="w-full h-[660px] object-cover"
         />
       </div>
     </div>

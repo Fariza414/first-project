@@ -21,9 +21,9 @@ const Options = () => {
   return (
     <div className="w-full flex flex-col items-center p-5">
       <div className="w-[900px] h-[400px] flex flex-col items-center justify-center rounded-xl border-4 border-red">
-        <div className="space-y-4 ">
-          <h3 className="pl-16 text-lg font-bold">Options</h3>
-          <p>Lorem ipsum dolor sit amet.</p>
+        <div className="">
+          <h3 className="text-lg font-bold">Options</h3>
+          {/* <p></p> */}
         </div>
         <div className="w-[1000px] h-[200px] flex flex-wrap justify-center items-center gap-20 mt-5">
           <div>
@@ -33,7 +33,7 @@ const Options = () => {
               name="season"
               id="season"
               onChange={(e) => setSeason(e.target.value)}
-              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-white focus:bg-gray-400"
+              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-gray-300 focus:bg-gray-400"
             >
               <option value="" disabled>
                 Select a season
@@ -50,7 +50,7 @@ const Options = () => {
               type="text"
               placeholder="Weather"
               onChange={(e) => setWeather(e.target.value)}
-              className="h-[30px] rounded-md pl-5 bg-white focus:bg-gray-400"
+              className="h-[30px] rounded-md pl-5 placeholder-black bg-gray-300 focus:bg-gray-400"
             />
           </div>
           <div>
@@ -59,9 +59,9 @@ const Options = () => {
               name="weather"
               id="weather"
               onChange={(e) => setTypeOfWeather(e.target.value)}
-              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-white focus:bg-gray-400"
+              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-gray-300 focus:bg-gray-400"
             >
-              <option value="" disabled>
+              <option value="Select weater type" disabled>
                 Select weather type
               </option>
               <option value="Sun and Rain">Sun & Rain</option>
@@ -75,7 +75,7 @@ const Options = () => {
               type="text"
               placeholder="Country"
               onChange={(e) => setCountry(e.target.value)}
-              className="h-[30px] rounded-md pl-5 bg-white focus:bg-gray-400"
+              className="h-[30px] rounded-md pl-5 placeholder-black bg-gray-300 focus:bg-gray-400"
             />
           </div>
           <div>
@@ -84,7 +84,7 @@ const Options = () => {
               name="filters"
               id="filters"
               onChange={(e) => setFilters(e.target.value)}
-              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-white focus:bg-gray-400"
+              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-gray-300 focus:bg-gray-400"
             >
               <option value="" disabled>
                 Select a filter
@@ -101,13 +101,15 @@ const Options = () => {
               name="gender"
               id="gender"
               onChange={(e) => setGender(e.target.value)}
-              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-white focus:bg-gray-400"
+              className="w-[200px] h-[30px] flex flex-col rounded-md pl-5 bg-gray-300 focus:bg-gray-400"
             >
               <option value="" disabled>
                 Select gender
               </option>
               <option value="Female">Female</option>
               <option value="Man">Man</option>
+              <option value="Little Boy">Little Boy</option>
+              <option value="Little Girl">Little Girl</option>
             </select>
           </div>
         </div>

@@ -6,7 +6,7 @@ const GenerationResult = ({ generatedText, generateText, loading, urlOfImage, sh
   return (
     <div className="w-[800px]">
       <div className="w-[800px] flex flex-col justify-center items-center border-4 border-spacing-6 rounded-xl gap-10">
-        <h3 className="">Generation Result</h3>
+        <h2 className="mt-5 font-semibold">Generation Result</h2>
         {urlOfImage ? (
           <div className="w-[350px] h-[350px] my-4">
             <img src={urlOfImage} alt="Generated" width={400} />
@@ -21,7 +21,7 @@ const GenerationResult = ({ generatedText, generateText, loading, urlOfImage, sh
         <div>
           <button
             onClick={() => generateText()}
-            className="px-4 w-[150px] h-[50px] m-4 rounded-2xl bg-indigo-400 flex items-center justify-center"
+            className="px-4 w-[150px] h-[50px] m-4 rounded-2xl  bg-black hover:bg-slate-600 text-white flex items-center justify-center"
             disabled={loading}
           >
             {loading ? (

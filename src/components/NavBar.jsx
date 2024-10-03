@@ -17,19 +17,19 @@ const NavBar = () => {
       <div className="flex text-center px-6 py-2 space-x-5 font-bold ">
         <Link
           to={"/generation"}
-          className="text-slate-900 hover:text-blue-400 hover:underline"
+          className="text-black hover:text-blue-700 hover:underline"
         >
           Generation
         </Link>
         <Link
           to={"/"}
-          className="text-slate-900 hover:text-blue-400 hover:underline"
+          className="text-black hover:text-blue-700 hover:underline"
         >
           MainPage
         </Link>
         <Link
           to={"/about"}
-          className="text-slate-900 hover:text-blue-400 hover:underline"
+          className="text-black hover:text-blue-700 hover:underline"
         >
           About Us
         </Link>
